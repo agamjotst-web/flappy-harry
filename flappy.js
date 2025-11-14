@@ -16,7 +16,7 @@ harryImg.src = "harry.png";   // make sure file exists!!
 // ===== Game variables =====
 let birdX = 0;
 let birdY = 0;
-let birdSize = 50;
+let birdSize = 80;
 
 let gravity = 0.4;
 let velocity = 0;
@@ -183,4 +183,3 @@ function startGame() {
   isGameOver = false;
   loop();
 }
-
