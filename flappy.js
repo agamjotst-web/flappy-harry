@@ -11,7 +11,7 @@ highScoreDisplay.textContent = "Highest Score: " + highScore;
 
 // Harry Potter image
 const harryImg = new Image();
-harryImg.src = "harry.jpeg";   // make sure file exists!!
+harryImg.src = "harry.png";   // make sure file exists!!
 
 // ===== Game variables =====
 let birdX = 0;
@@ -183,3 +183,4 @@ function startGame() {
   isGameOver = false;
   loop();
 }
+
