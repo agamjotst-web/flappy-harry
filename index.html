@@ -4,21 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Flappy Harry</title>
+
+  <!-- 🪄 Harry Potter-style font -->
+  <link href="https://fonts.cdnfonts.com/css/harry-p" rel="stylesheet">
+
   <style>
-    html,body {
-      margin:0;
-      height:100%;
-      overflow:hidden;
-      font-family: 'HarryPotter', serif;
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
       background-color: black;
     }
 
-    @font-face {
-      font-family: 'HarryPotter';
-      src: url('https://fonts.cdnfonts.com/s/16543/HARRYP__.TTF') format('truetype');
-    }
-
-    /* Intro screen */
+    /* === Intro Screen === */
     #intro {
       position: fixed;
       inset: 0;
@@ -34,33 +32,35 @@
     }
 
     #intro h1 {
-      font-size: 90px;
+      font-family: 'Harry P', serif;
+      font-size: 120px;
       color: #ffcc00;
       text-shadow:
-        0 0 20px #ffcc00,
-        0 0 40px #ff6600,
-        0 0 60px red;
-      letter-spacing: 4px;
-      margin: 0 0 20px 0;
+        0 0 25px #ffcc00,
+        0 0 50px #ff6600,
+        0 0 70px red;
+      letter-spacing: 5px;
+      margin: 0 0 25px 0;
       animation: flicker 2s infinite alternate;
     }
 
     @keyframes flicker {
-      0% { opacity: 1; text-shadow: 0 0 20px #ffcc00, 0 0 40px #ff6600, 0 0 60px red; }
-      50% { opacity: 0.8; text-shadow: 0 0 15px #ff6600, 0 0 30px red; }
-      100% { opacity: 1; text-shadow: 0 0 25px #ffcc00, 0 0 50px #ff6600, 0 0 80px red; }
+      0% { opacity: 1; text-shadow: 0 0 25px #ffcc00, 0 0 50px #ff6600, 0 0 70px red; }
+      50% { opacity: 0.85; text-shadow: 0 0 20px #ff6600, 0 0 40px red; }
+      100% { opacity: 1; text-shadow: 0 0 30px #ffcc00, 0 0 60px #ff6600, 0 0 80px red; }
     }
 
     #intro button {
       background-color: #111;
       border: 2px solid #ffcc00;
       color: #ffcc00;
-      font-size: 24px;
-      padding: 10px 30px;
+      font-size: 26px;
+      padding: 10px 35px;
       border-radius: 10px;
       cursor: pointer;
       text-shadow: 0 0 10px red;
       transition: background 0.3s, transform 0.3s;
+      font-family: 'Harry P', serif;
     }
 
     #intro button:hover {
@@ -68,11 +68,15 @@
       transform: scale(1.1);
     }
 
-    /* Game area */
-    body {
-      background-color: #70c5ce;
-      font-family: Arial, sans-serif;
+    #highScoreDisplay {
+      font-family: 'Harry P', serif;
+      font-size: 40px;
+      color: #ffcc00;
+      text-shadow: 0 0 20px #ff6600;
+      margin-top: 20px;
     }
+
+    /* === Game Area === */
     canvas { display:block; }
     #overlay {
       position: absolute;
@@ -83,23 +87,17 @@
       justify-content:center;
       pointer-events: none;
     }
-    .msg {
-      background: rgba(255,255,255,0.85);
-      padding: 18px 24px;
-      border-radius: 10px;
-      text-align:center;
-      pointer-events: auto;
-    }
   </style>
 </head>
 <body>
-  <!-- Intro Screen -->
+  <!-- ✨ Intro Screen -->
   <div id="intro">
     <h1>Flappy Harry</h1>
     <button id="startBtn">Start Game</button>
+    <div id="highScoreDisplay">Highest Score: 0</div>
   </div>
 
-  <!-- Game -->
+  <!-- 🎮 Game -->
   <canvas id="gameCanvas" style="display:none;"></canvas>
   <div id="overlay" aria-hidden="true"></div>
 
