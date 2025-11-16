@@ -33,7 +33,7 @@ let birdX = 0;
 let birdY = 0;
 let birdSize = 60;
 
-let gravity = 0.3;
+let gravity = 0.1;
 let velocity = 0;
 let jump = -6;
 
@@ -210,5 +210,6 @@ function startGame() {
   isGameOver = false;
   loop();
 }
+
 
 
