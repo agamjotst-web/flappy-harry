@@ -33,9 +33,9 @@ let birdX = 0;
 let birdY = 0;
 let birdSize = 60;
 
-let gravity = 0.1;
+let gravity = 0.2;
 let velocity = 0;
-let jump = -6;
+let jump = -8;
 
 let pipes = [];
 let pipeWidth = 80;
@@ -210,6 +210,7 @@ function startGame() {
   isGameOver = false;
   loop();
 }
+
 
 
 
