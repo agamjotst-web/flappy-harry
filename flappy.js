@@ -9,22 +9,37 @@ const highScoreDisplay = document.getElementById("highScoreDisplay");
 let highScore = parseInt(localStorage.getItem("flappyHarryHighScore") || "0", 10);
 highScoreDisplay.textContent = "Highest Score: " + highScore;
 
+// Load background image
+let bg = new Image();
+bg.src = "flappybg.jpg";  // <-- YOUR BACKGROUND FILE NAME HERE
+
+let bgLoaded = false;
+bg.onload = () => bgLoaded = true;
+
 // Harry Potter image
 const harryImg = new Image();
-harryImg.src = "harry.png";   // make sure file exists!!
+harryImg.src = "harry.png";   
+strokeStyle = "white";
+strokecolor = "white";
+
+// ===== Load Pipe Image =====
+const pipeImg = new Image();
+pipeImg.src = "pipe.png";   // <-- YOUR PIPE IMAGE
+let pipeLoaded = false;
+pipeImg.onload = () => pipeLoaded = true;
 
 // ===== Game variables =====
 let birdX = 0;
 let birdY = 0;
 let birdSize = 80;
 
-let gravity = 0.4;
+let gravity = 0.3;
 let velocity = 0;
-let jump = -8;
+let jump = -6;
 
 let pipes = [];
-let pipeWidth = 70;
-let pipeGap = 260;
+let pipeWidth = 100;
+let pipeGap = 370;
 
 let score = 0;
 let frame = 0;
@@ -81,16 +96,28 @@ function spawnPipe() {
 }
 
 // =========================
+// Draw Harry
+// =========================
 function drawHarry() {
   ctx.drawImage(harryImg, birdX - birdSize / 2, birdY - birdSize / 2, birdSize, birdSize);
 }
 
 // =========================
+// Updated: Draw Pipes With Image
+// =========================
 function drawPipes() {
-  ctx.fillStyle = "green";
+  if (!pipeLoaded) return;
+
   pipes.forEach(p => {
-    ctx.fillRect(p.x, 0, pipeWidth, p.y);
-    ctx.fillRect(p.x, p.y + pipeGap, pipeWidth, canvas.height);
+    // ----- TOP PIPE -----
+    ctx.save();
+    ctx.translate(p.x + pipeWidth / 2, p.y / 2);
+    ctx.rotate(Math.PI);
+    ctx.drawImage(pipeImg, -pipeWidth / 2, -p.y / 2, pipeWidth, p.y);
+    ctx.restore();
+
+    // ----- BOTTOM PIPE -----
+    ctx.drawImage(pipeImg, p.x, p.y + pipeGap, pipeWidth, canvas.height - (p.y + pipeGap));
   });
 }
 
