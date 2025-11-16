@@ -31,7 +31,7 @@ pipeImg.onload = () => pipeLoaded = true;
 // ===== Game variables =====
 let birdX = 0;
 let birdY = 0;
-let birdSize = 80;
+let birdSize = 60;
 
 let gravity = 0.3;
 let velocity = 0;
@@ -210,3 +210,4 @@ function startGame() {
   isGameOver = false;
   loop();
 }
+
