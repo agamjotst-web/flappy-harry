@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,9 @@
     html, body {
       margin: 0;
       overflow: hidden;
-      background: black;
+      background-image: url('flappybg.jpg'); /* <-- YOUR BACKGROUND FILE NAME HERE */
+      background-size: cover;
+      background-position: center;
       height: 100%;
       touch-action: none;
     }
@@ -19,7 +22,9 @@
     #intro {
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle, #000 40%, #111 100%);
+      background-image: url(flappybg.jpg);    
+      background-size: cover;
+      background-position: center;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -31,7 +36,7 @@
     #intro h1 {
       font-family: 'Harry P', serif;
       font-size: 100px;
-      color: #ffcc00;
+      color: #031628;
       text-shadow: 0 0 20px #ff6600;
       margin-bottom: 20px;
     }
@@ -40,9 +45,10 @@
       font-family: 'Harry P', serif;
       font-size: 40px;
       padding: 10px 30px;
-      background: black;
+      background-image: url(flappybg.jpg);
       border: 2px solid #ffcc00;
-      color: #ffcc00;
+      color: #06325c;
+  
       cursor: pointer;
     }
 
