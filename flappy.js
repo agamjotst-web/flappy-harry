@@ -38,7 +38,7 @@ let velocity = 0;
 let jump = -6;
 
 let pipes = [];
-let pipeWidth = 100;
+let pipeWidth = 80;
 let pipeGap = 370;
 
 let score = 0;
@@ -210,4 +210,5 @@ function startGame() {
   isGameOver = false;
   loop();
 }
+
 
